@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+    <input #termino type="text" (keyup)="search(termino.value)" class="form-control" placeholder="Buscar artista">
+  </div>
+</div>
+
+<app-loading class="m-5" *ngIf="loading"></app-loading>
+<div *ngIf="!loading" class="card-columns m-5 animated fadeIn">
+  <app-card *ngFor="let artist of artists" [item]="artist"></app-card>
+  <!--
+  <div *ngFor="let artist of artists" class="card">
+    <img [src]="artist.images | noimage" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{artist.name}}</h5>
+    </div>
+  </div>
+  -->
+</div>
